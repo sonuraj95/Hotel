@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Poppins", sans-serif;
+
+  --color-navy: #0F172A;
+  --color-gold: #C9A961;
+  --color-gold-dark: #B08F4A;
+  --color-cream: #FAF8F5;
+  --color-ink: #2D2D2D;
+  --color-muted: #8B8B8B;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading text-navy;
+  }
+  ::selection {
+    @apply bg-gold/30 text-navy;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto max-w-7xl px-6 lg:px-10;
+  }
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 border border-gold
+           px-7 py-3 text-[11px] font-medium uppercase tracking-[0.18em]
+           text-gold transition-all duration-300 hover:bg-gold hover:text-navy;
+  }
+  .btn-gold-solid {
+    @apply inline-flex items-center justify-center gap-2 bg-gold border border-gold
+           px-7 py-3 text-[11px] font-medium uppercase tracking-[0.18em]
+           text-navy transition-all duration-300 hover:bg-gold-dark hover:border-gold-dark;
+  }
+  .section-label {
+    @apply text-[11px] font-medium uppercase tracking-[0.28em] text-gold;
+  }
+  .section-title {
+    @apply font-heading text-4xl leading-tight text-navy md:text-5xl;
+  }
+  .section-desc {
+    @apply text-sm leading-relaxed text-muted md:text-base;
+  }
+}
